@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/24.png">
+        <title>Dashboard - Pizza Sales Team 24</title>
+        <!-- Link Data Tables -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+        <!-- Link Icon -->
+        <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <!-- HEADER -->
+        <header>
+            <div class="logojudul-kiri">
+                <img class="logo" src="img/pizza.png" alt="Logo Pizza">
+                <h1>PIZZA PLACE SALES REPORT</h1>
+            </div> 
+            <nav>
+                <ul>
+                    <li><a href="home.html" onclick="loadPage('home.html')">Home</a></li>
+                    <li><a href="index.html" onclick="loadPage('index.html')" style="color: #ffcc00;">Statistics</a></li>
+                    <li><a href="team.html" onclick="loadPage('team.html')">About Us</a></li>
+                    <li><a href="login.html">
+                        <div class="bx bx-log-out" id="logout"></div>
+                    </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- SECTION -->
+        <main class="container-dashboard">
+            <div class="dash-header">
+                <h1 class="content-text" data-aos="fade-down" data-aos-duration="1500">Dashboard</h1>
+
+                <form action="js/barufilter.js" class="select">
+                    <div class="select-dropdown">
+                        <div class="select-btn btn1" data-aos="fade-down" data-aos-duration="1500">
+                            <span class="btn-text">Pizza Type</span>
+                            <span class="arrow-dwn">
+                                <i class="bx bx-chevron-up"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items pizza-type"></ul>
+                    </div>
+                    <div class="select-dropdown">
+                        <div class="select-btn btn2" data-aos="fade-down" data-aos-duration="1500">
+                            <span class="btn-text">Category</span>
+                            <span class="arrow-dwn">
+                                <i class="bx bx-chevron-up"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items pizza-category"></ul>
+                    </div>
+                    <div class="select-dropdown">
+                        <div class="select-btn btn3" data-aos="fade-down" data-aos-duration="1500">
+                            <span class="btn-text">Size</span>
+                            <span class="arrow-dwn">
+                                <i class="bx bx-chevron-up"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items pizza-size"></ul>
+                    </div>
+                </form>
+            </div>
+
+            <!-- SECTION analys -->
+            <section>
+                <div class="analys">
+                    <div class="analys-sales" data-aos="fade-down" data-aos-duration="1500">
+                        <div class="sales-text total-sales" data-aos="zoom-in" data-aos-duration="1500">
+                            <h3>Total Sales</h3>
+                            <h1 class="counting">$0</h1>
+                        </div>
+                        <div class="sales-icon">
+                            <i class="bx bx-wallet"></i>
+                        </div>
+                    </div>
+                    <div class="analys-sales" data-aos="fade-down" data-aos-duration="1500">
+                        <div class="sales-text average-sales">
+                            <h3>Avg Order Value</h3>
+                            <h1 class="counting">$0</h1>
+                        </div>
+                        <div class="sales-icon">
+                            <i class="bx bx-coin-stack"></i>
+                        </div>
+                    </div>
+                    <div class="analys-sales" data-aos="fade-down" data-aos-duration="1500">
+                        <div class="sales-text num-of-orders">
+                            <h3>Total Order</h3>
+                            <h1 class="counting">0</h1>
+                        </div>
+                        <div class="sales-icon">
+                            <i class="bx bx-cart"></i>
+                        </div>
+                    </div>
+                    <div class="analys-sales" data-aos="fade-down" data-aos-duration="1500">
+                        <div class="sales-text pizza-sold">
+                            <h3>Total Pizza Sold</h3>
+                            <h1 class="counting">0</h1>
+                        </div>
+                        <div class="sales-icon">
+                            <i class="bx bx-notepad"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard">
+                <div class="chart">
+                    <div class="chart-item" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="chart-text">
+                            <p>HOURLY TREND OF TOTAL ORDERS</p>
+                        </div>
+                        <div class="chart-img">
+                            <canvas id="hourlyTrend"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-item" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="chart-text">
+                            <p>MONTHLY TREND OF TOTAL ORDERS</p>
+                        </div>
+                        <div class="chart-img">
+                            <canvas id="monthlyTrend"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-item" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="chart-text">
+                            <p>DAILY TREND OF TOTAL ORDERS</p>
+                        </div>
+                        <div class="chart-img">
+                            <canvas id="dailyPizzaSalesTrendChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-item" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="chart-text">
+                            <p>TOTAL QUANTITY BY CATEGORY</p>
+                        </div>
+                        <div class="chart-img">
+                            <canvas id="quantityCategory"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-item" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="chart-text">
+                            <p>TOTAL ORDER BY SIZE</p>
+                        </div>
+                        <div class="chart-img">
+                            <canvas id="bestSellingPizzaSizeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-item" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="chart-text">
+                            <p>TOP 5 BEST SELLING PIZZA</p>
+                        </div>
+                        <div class="chart-img">
+                            <canvas id="top5BestSellingPizzaTypeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-item" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="chart-text"> 
+                            <p>BOTTOM 5 WORST SELLING PIZZA</p>
+                        </div>
+                        <div class="chart-img">
+                            <canvas id="top5LeastSellingPizzaTypeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="table-header">
+                        <h3>BEST SELLING PIZZA</h3>
+                    </div>
+                    <table class="content-table display">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Pizza Name</th>
+                                <th>Sum of Price</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-card">
+                <h3>
+                    2024 MSIB RevoU - <span><a href="https">Semarang Team 24</a></span>
+                </h3>
+            </div>
+        </footer>
+
+        <!-- JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+        <script src="js/filter.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    </body>
+</html>
